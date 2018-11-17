@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Name: HumanMaleDynamicDnaAsset
   m_EditorClassIdentifier: 
   dnaTypeHash: 815443803
-  lastKnownAssetPath: Assets/UMA/Content/UMA/HumanMale/DNA/DynamicDNA/HumanMaleDynamicDnaAsset.asset
-  lastKnownDuplicateAssetPath: Assets/UMA/Content/UMA/HumanMale/DNA/DynamicDNA/HumanMaleDynamicDnaAsset
+  lastKnownAssetPath: Assets/UMA/Content/UMA_Core/HumanMale/DNA/DynamicDNA/HumanMaleDynamicDnaAsset.asset
+  lastKnownDuplicateAssetPath: Assets/UMA/Content/UMA_Core/HumanMale/DNA/DynamicDNA/HumanMaleDynamicDnaAsset
     1.asset
-  lastKnownInstanceID: 11700
+  lastKnownInstanceID: 3962
   Names:
   - skinGreenness
   - skinBlueness
