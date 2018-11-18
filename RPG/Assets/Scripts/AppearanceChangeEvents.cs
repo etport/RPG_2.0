@@ -25,6 +25,30 @@ namespace AppearanceChangeEvents
 
     #region Head
 
+    public class ChangeHairStyle: UnityEvent<int>
+    {
+    }
+
+    public class ChangeHairColor: UnityEvent<int>
+    {
+    }
+
+    public class ChangeHeadSize : UnityEvent<float>
+    {
+    }
+
+    public class ChangeNeckSize : UnityEvent<float>
+    {
+    }
+
+    public class ChangeJawHeight : UnityEvent<float>
+    {
+    }
+
+    public class ChangeJawWidth : UnityEvent<float>
+    {
+    }
+
     #endregion
 
     #region Face

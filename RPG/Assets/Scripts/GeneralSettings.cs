@@ -29,8 +29,8 @@ public class GeneralSettings : MonoBehaviour {
         height = Height.GetComponentInChildren<Slider>();
         skinColor = SkinColor.GetComponentInChildren<Slider>();
 
-        CharacterCreationEventManager.AddGeneralInvoker(this); 
-     
+        CharacterCreationEventManager.AddGeneralInvoker(this);
+        
 	}
 	
     public void ChangeName()

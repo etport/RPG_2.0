@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public static class CharacterCreationEventManager
 {
+
+    #region General Events
     static GeneralSettings generalInvoker;
     static UnityAction<string> nameChangeListener;
     static UnityAction<bool> genderChangeListener;
@@ -67,4 +69,106 @@ public static class CharacterCreationEventManager
             generalInvoker.AddSkinColorListener(skinColorListener); 
         }
     }
+
+    #endregion
+
+    #region Head Events
+
+    static HeadSettings headInvoker;
+    static UnityAction<int> hairStyleListener;
+    static UnityAction<int> hairColorListener;
+    static UnityAction<float> headSizeListener;
+    static UnityAction<float> neckSizeListener;
+    static UnityAction<float> jawHeightListener;
+    static UnityAction<float> jawWidthListener; 
+
+    public static void AddHeadInvoker(HeadSettings invoker)
+    {
+        headInvoker = invoker; 
+        if (hairStyleListener != null)
+        {
+            headInvoker.AddHairStyleListener(hairStyleListener);
+        }
+
+        if (hairColorListener != null)
+        {
+            headInvoker.AddHairColorListener(hairColorListener);
+        }
+
+        if (headSizeListener != null)
+        {
+            headInvoker.AddHeadSizeListener(headSizeListener);
+        }
+
+        if (neckSizeListener != null)
+        {
+            headInvoker.AddNeckSizeListener(neckSizeListener);
+        }
+
+        if (jawHeightListener != null)
+        {
+            headInvoker.AddJawHeightListener(jawHeightListener);
+        }
+
+        if (jawWidthListener != null)
+        {
+            headInvoker.AddJawWidthListener(jawWidthListener); 
+        }
+    }
+
+    public static void AddHairStyleListener(UnityAction<int> listener)
+    {
+        hairStyleListener = listener; 
+        if (headInvoker != null)
+        {
+            headInvoker.AddHairStyleListener(hairStyleListener);
+        }
+    }
+
+
+    public static void AddHairColorListener(UnityAction<int> listener)
+    {
+        hairColorListener = listener;
+        if (headInvoker != null)
+        {
+            headInvoker.AddHairColorListener(hairColorListener);
+        }
+    }
+
+    public static void AddHeadSizeListener(UnityAction<float> listener)
+    {
+        headSizeListener = listener;
+        if (headInvoker != null)
+        {
+            headInvoker.AddHeadSizeListener(headSizeListener);
+        }
+    }
+
+    public static void AddNeckSizeListener(UnityAction<float> listener)
+    {
+        neckSizeListener = listener;
+        if (headInvoker != null)
+        {
+            headInvoker.AddNeckSizeListener(neckSizeListener);
+        }
+    }
+
+    public static void AddJawHeightListener(UnityAction<float> listener)
+    {
+        jawHeightListener = listener;
+        if (headInvoker != null)
+        {
+            headInvoker.AddJawHeightListener(jawHeightListener);
+        }
+    }
+
+    public static void AddJawWidthListener(UnityAction<float> listener)
+    {
+        jawWidthListener = listener;
+        if (headInvoker != null)
+        {
+            headInvoker.AddJawWidthListener(jawWidthListener);
+        }
+    }
+    #endregion
 }

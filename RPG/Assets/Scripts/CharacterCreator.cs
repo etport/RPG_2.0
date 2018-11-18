@@ -9,8 +9,12 @@ public class CharacterCreator : MonoBehaviour {
     DynamicCharacterAvatar avatar;
     Dictionary<string, DnaSetter> dna;
     string characterName;
+    
+    public Color[] skinColors;
+    public UMAWardrobeRecipe[] maleHairStyles;
+    public UMAWardrobeRecipe[] femaleHairStyles;
+    int currentStyle; 
 
-    public Color[] skinColors; 
 
 	// Use this for initialization
 	void Start ()
@@ -21,10 +25,14 @@ public class CharacterCreator : MonoBehaviour {
         CharacterCreationEventManager.AddNameChangeListener(ChangeName);
         CharacterCreationEventManager.AddGenderChangeListener(ChangeGender);
         CharacterCreationEventManager.AddHeightChangeListener(ChangeHeight);
-        CharacterCreationEventManager.AddSkinColorChangeListener(ChangeSkinColor); 
+        CharacterCreationEventManager.AddSkinColorChangeListener(ChangeSkinColor);
+
+        CharacterCreationEventManager.AddHairStyleListener(ChangeHairStyle); 
+
 	}
-	
-	void ChangeName(string name)
+    #region General
+
+    void ChangeName(string name)
     {
         characterName = name;
         gameObject.name = characterName; 
@@ -34,12 +42,14 @@ public class CharacterCreator : MonoBehaviour {
     {
         if (male && avatar.activeRace.name != "HumanMaleDCS")
         {
-            avatar.ChangeRace("HumanMaleDCS"); 
+            avatar.ChangeRace("HumanMaleDCS");
+            ChangeHairStyle(currentStyle);
         }
 
         if (!male && avatar.activeRace.name != "HumanFemaleDCS")
         {
-            avatar.ChangeRace("HumanFemaleDCS"); 
+            avatar.ChangeRace("HumanFemaleDCS");
+            ChangeHairStyle(currentStyle); 
         }
 
         avatar.BuildCharacter(); 
@@ -55,7 +65,29 @@ public class CharacterCreator : MonoBehaviour {
     void ChangeSkinColor(int index)
     {
         avatar.SetColor("Skin", skinColors[index]);
-        
         avatar.UpdateColors(true); 
     }
+
+#endregion
+
+    void ChangeHairStyle(int styleIndex)
+    {
+        currentStyle = styleIndex; 
+        if (avatar.activeRace.name == "HumanMaleDCS")
+        {
+            avatar.SetSlot("Hair", maleHairStyles[styleIndex].name);
+        }
+        else
+        {
+            avatar.SetSlot("Hair", femaleHairStyles[styleIndex].name); 
+        }
+
+        avatar.BuildCharacter();
+    }
+
+    void ChangeHairColor(int colorIndex)
+    {
+
+    }
+       
 }
