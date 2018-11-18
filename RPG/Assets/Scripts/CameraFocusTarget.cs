@@ -8,7 +8,8 @@ using UMA.CharacterSystem;
 public class CameraFocusTarget : MonoBehaviour {
 
 
-    public DynamicCharacterAvatar target;
+    public DynamicCharacterAvatar target; 
+    public HumanBodyBones focusPoint; 
     Animator animator;
 
     // Use this for initialization
@@ -22,7 +23,7 @@ public class CameraFocusTarget : MonoBehaviour {
     {
         if (gameObject.GetComponent<Camera>().isActiveAndEnabled)
         {
-            Transform head = animator.GetBoneTransform(HumanBodyBones.Head);
+            Transform head = animator.GetBoneTransform(focusPoint);
             transform.LookAt(head);
 
         }
